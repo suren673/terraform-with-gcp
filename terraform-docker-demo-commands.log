@@ -1,0 +1,16 @@
+$  sudo yum install -y yum-utils
+$  sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+$  sudo yum -y install terraform
+$  terraform -help
+$  terraform -help plan
+$  terraform -install-autocomplete
+$  sudo yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+$  sudo yum install docker-ce docker-ce-cli containerd.io
+$  systemctl start docker
+$  docker run hello-world
+$  docker run hello-world
+$  mkdir terraform-docker-demo && cd $_
+$  vi maint.tf
+$  terraform init
+$  terraform apply
+$  curl -v localhost:8000
