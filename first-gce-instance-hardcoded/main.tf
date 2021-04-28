@@ -1,0 +1,31 @@
+resource "google_compute_instance" "vm_instance" {
+	name  = "my-tf-instance"
+	machine_type = "f1-micro"
+	zone = "europe-west2-b"
+
+	boot_disk {
+		initialize_params {
+			# image can be a particular  machine image or a fully qualified image-family name
+			image = "debian-cloud/debian-9"
+			# image = "projects/<PROJECT_NAME>/global/images/family/<IMAGE_NAME>"
+		}
+		# CMEK (keys managed in Google cloud KMS) 
+		# kms_key_self_link = "projects/<PROJECT_NAME>/locations/<LOCATION>/keyRings/<EXISTING_PROJ_NAME>/cryptoKeys/<KEY_NAME>"
+	}
+
+	network_interface {
+		# subnetwork = "projects/<PROJECT_NAME>/regions/<REGION_OF_SUBNET>/<SUBNET_NAME>"
+		# network_ip = "10.0.0.1" -- Static IP (Private IP address)
+	}
+	scheduling {
+		on_host_maintenance = "MIGRATE"
+	}
+	
+	metadata_startup_script_url = "gs://<BUCKET_NAME>/path/to/file/filename.sh"
+
+  	service_account {
+    		email  = "<SERVICE_ACCOUNT_NAME>@<PROJECT_NAME>.iam.gserviceaccount.com"
+    		scopes = ["cloud-platform"]
+  	}
+	tags = ["allow-nginx-ingress"]
+}
