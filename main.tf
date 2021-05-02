@@ -16,6 +16,9 @@ resource "google_compute_instance" "vm_instance" {
 	network_interface {
 		# subnetwork = "projects/<PROJECT_NAME>/regions/<REGION_OF_SUBNET>/<SUBNET_NAME>"
 		# network_ip = "10.0.0.1" -- Static IP (Private IP address)
+		network = "default"
+    		access_config {
+    		}
 	}
 	scheduling {
 		on_host_maintenance = "MIGRATE"
@@ -24,7 +27,7 @@ resource "google_compute_instance" "vm_instance" {
 	metadata_startup_script_url = "gs://<BUCKET_NAME>/path/to/file/filename.sh"
 
   	service_account {
-    		email  = "<SERVICE_ACCOUNT_NAME>@<PROJECT_NAME>.iam.gserviceaccount.com"
+    		email  = "terraform-deployer@revanth-gcp-2020.iam.gserviceaccount.com"
     		scopes = ["cloud-platform"]
   	}
 	tags = ["allow-nginx-ingress"]
