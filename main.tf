@@ -1,7 +1,7 @@
 resource "google_compute_instance" "vm_instance" {
 	name  = "my-tf-instance"
 	machine_type = "f1-micro"
-	zone = "europe-west2-b"
+	zone = "us-central1-a"
 
 	boot_disk {
 		initialize_params {
