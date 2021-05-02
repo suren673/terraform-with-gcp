@@ -24,7 +24,7 @@ resource "google_compute_instance" "vm_instance" {
 		on_host_maintenance = "MIGRATE"
 	}
 	
-	metadata_startup_script_url = "gs://<BUCKET_NAME>/path/to/file/filename.sh"
+	#metadata_startup_script_url = "gs://<BUCKET_NAME>/path/to/file/filename.sh"
 
   	service_account {
     		email  = "terraform-deployer@revanth-gcp-2020.iam.gserviceaccount.com"
