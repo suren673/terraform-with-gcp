@@ -1,5 +1,5 @@
 resource "google_compute_instance" "vm_instance" {
-	name  = "my-tf-instance"
+	name  = "fully-pipelined-tf-instance"
 	machine_type = "f1-micro"
 	zone = "us-central1-a"
 
