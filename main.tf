@@ -32,3 +32,7 @@ resource "google_compute_instance" "vm_instance" {
   	}
 	tags = ["allow-nginx-ingress"]
 }
+
+output "gce_ext_ip" {
+	value = google_compute_instance.vm_instance.network_interface[0].access_config[0].nat_ip
+}
