@@ -9,8 +9,7 @@ resource "google_compute_instance" "vm_instance" {
 			image = "debian-cloud/debian-9"
 			# image = "projects/<PROJECT_NAME>/global/images/family/<IMAGE_NAME>"
 		}
-		# CMEK (keys managed in Google cloud KMS) 
-		# kms_key_self_link = "projects/<PROJECT_NAME>/locations/<LOCATION>/keyRings/<EXISTING_PROJ_NAME>/cryptoKeys/<KEY_NAME>"
+		
 	}
 
 	network_interface {
