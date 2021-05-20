@@ -5,4 +5,5 @@ provider "google" {
 	zone = "us-central1-a"
 	
 	credentials = "./SA_key.json"
+	
 }
