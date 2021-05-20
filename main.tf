@@ -5,7 +5,7 @@ resource "google_compute_instance" "vm_instance" {
 
 	boot_disk {
 		initialize_params {
-			# image can be a particular  machine image or a fully qualified image-family name
+			# image can be a particular  machine image or a fully qualified image-family
 			image = "debian-cloud/debian-9"
 			# image = "projects/<PROJECT_NAME>/global/images/family/<IMAGE_NAME>"
 		}
