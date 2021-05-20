@@ -3,11 +3,12 @@
 provider "google" {
  
 
-  //credentials = var.credentials
+  
 
   project = var.gcp_project
   region  = var.gcp_region
   zone    = var.gcp_zone
+ credentials = var.credentials
 }
 
 resource "google_compute_instance" "default" {
