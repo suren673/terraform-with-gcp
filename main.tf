@@ -1,10 +1,9 @@
 
+terraform {
+  required_version = ">= 0.12"
+}
 
 provider "google" {
- 
-
-  
-
   project = var.gcp_project
   region  = var.gcp_region
   zone    = var.gcp_zone
