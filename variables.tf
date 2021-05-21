@@ -28,7 +28,7 @@ variable "gcp_machinetype" {
   //default =  "e2-micro"
 }
 
-variabe "gcp_auth_file" {
+variable "gcp_auth_file" {
   type        = string
   description = "authentication file"
 }
