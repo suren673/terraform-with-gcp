@@ -6,13 +6,14 @@ environment {
 }
 
 stages {
-stage {"terraform init"} {
-     steps {
-        sh "terraform init" 
-         }
+ stage('Initialize'){
+            steps{
+                sh 'terraform init'
+            }
+        }
      }
    }
-}
+
 
 def getterraformPath(){
  def dfHome=tool name: 'terraform-15', type: 'terraform'
