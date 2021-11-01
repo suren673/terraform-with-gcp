@@ -4,7 +4,7 @@ provider "google" {
   project = var.gcp_project
   region  = var.gcp_region
   zone    = var.gcp_zone
- credentials = var.gcp_auth_file
+ //credentials = var.gcp_auth_file
 }
 
 resource "google_compute_instance" "default" {
