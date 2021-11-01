@@ -1,11 +1,18 @@
 pipeline {
 
-agent any 
-environment {
-  PATH = "${PATH} : ${getterraformPath()}"
-}
-
+  agent any 
+        tools {
+           terraform 'terraform'
+            }
+environment{
+        GOOGLE_APPLICATION_CREDENTIALS= credentials('GCP_TF_SA')
+    }   
 stages {
+stage('Git Checkout'){
+            steps{
+            git credentialsId: 'githubcredentialid', url: 'https://github.com/suren673/terraform-with-gcp'
+            }
+          }    
  stage('Initialize'){
             steps{
                 sh 'terraform init'
@@ -26,8 +33,40 @@ stages {
    }
 
 
-def getterraformPath(){
- def dfHome=tool name: 'terraform-15', type: 'terraform'
-  return dfHome
-}
 
+
+//if selected pipeline from script from jenkin
+/*pipeline {
+    agent any 
+        tools {
+           terraform 'terraform'
+            }
+    environment{
+        GOOGLE_APPLICATION_CREDENTIALS= credentials('GCP_TF_SA')
+    }        
+    stages{
+        stage('Git Checkout'){
+            steps{
+            git credentialsId: 'githubcredentialid', url: 'https://github.com/suren673/terraform-with-gcp'
+            }
+          }    
+           stage('Terraform Init')
+           {
+               steps{
+                   sh 'terraform init'
+               }
+           }
+            stage('Terraform Plan')
+           {
+               steps{
+                   sh 'terraform plan'
+               }
+           }
+            stage('Terraform Apply')
+           {
+               steps{
+                   sh 'terraform apply --auto-approve'
+               }
+           }
+     }      
+    }*/
