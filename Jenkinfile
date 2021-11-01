@@ -8,7 +8,11 @@ environment{
         GOOGLE_APPLICATION_CREDENTIALS= credentials('GCP_TF_SA')
     }   
 stages {
-    
+    stage('Git Checkout'){
+            steps{
+            git credentialsId: 'githubcredentialid', url: 'https://github.com/suren673/terraform-with-gcp'
+            }
+          }    
  stage('Initialize'){
             steps{
                 sh 'terraform init'
